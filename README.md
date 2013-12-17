@@ -16,7 +16,7 @@ How To Use:
 6) This method returns the path to the PDF located in the temp directory.  
 7) Use the path how you wish to either email or display the PDF.  
 
-Tips:
+Tips:  
 1) There is a bool property you may set to draw boxes around labels for debugging: drawBoxesAroundLabels = YES  
 2) Use autolayout in your XIBs to have the labels size themselves according to text content.  
 3) Use UIViews to make boxes and lines. Use views that are 1 pixel high or wide to create lines. Set the tag of a UIView to 1 to have it filled and zero to draw it as a 1 pixel bordered box.  
