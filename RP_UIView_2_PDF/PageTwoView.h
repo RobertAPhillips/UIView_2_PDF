@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  PageTwoView.h
 //  RP_UIView_2_PDF
 //
 //  Created by Robert Phillips on 17/12/2013.
@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <QuickLook/QuickLook.h>
 
-@interface ViewController : UIViewController <QLPreviewControllerDataSource>
+@interface PageTwoView : UIView
+
+@property (weak, nonatomic) IBOutlet UIView *xibView;
 
 @end
