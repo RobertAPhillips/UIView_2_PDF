@@ -43,6 +43,7 @@
     pageOneView.titleTwo.text = @"This title also resizes:";
     pageOneView.labelOne.text = @"This label moves and resizes";
     pageOneView.labelOne.text = @"This label also moves and resizes";
+    pageOneView.rightAllignedLabel.text = @"$42.32";
     [arrayOfViews addObject:pageOneView];
     
     // create a page two instance
@@ -56,7 +57,7 @@
     
     // initialize the PDF drawing code
     RP_UIView_2_PDF *view2pdf = [[RP_UIView_2_PDF alloc] init];
-    view2pdf.drawBoxesAroundLabels = YES;
+    //view2pdf.drawBoxesAroundLabels = YES;
     
     // assign the path to the PDF to the property variable so that QLPreviewController can display it by sending the views to the PDF creator
     self.pdfPath = [view2pdf pathToPDFByCreatingPDFFromUIViews:arrayOfViews withPDFFileName:@"myPDF"];

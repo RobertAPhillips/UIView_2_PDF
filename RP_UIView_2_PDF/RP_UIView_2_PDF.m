@@ -144,7 +144,7 @@
             [label sizeToFit];
             [label layoutIfNeeded];
         }
-        
+                
         CGPoint origin = [subview.superview convertPoint:subview.frame.origin toView:subview.superview.superview];
         subview.frame = CGRectMake(origin.x, origin.y, subview.frame.size.width, subview.frame.size.height);
         [array addObjectsFromArray:(NSArray*)[self allSubViewsForView:subview]];

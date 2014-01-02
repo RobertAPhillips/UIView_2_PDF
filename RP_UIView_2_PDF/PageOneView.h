@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleTwo;
 @property (weak, nonatomic) IBOutlet UILabel *labelOne;
 @property (weak, nonatomic) IBOutlet UILabel *labelTwo;
+@property (weak, nonatomic) IBOutlet UILabel *rightAllignedLabel;
 
 @end
