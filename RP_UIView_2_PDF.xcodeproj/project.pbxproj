@@ -71,8 +71,8 @@
 		8FBA0DC518609943002C7B11 /* PageOneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageOneView.h; sourceTree = "<group>"; };
 		8FBA0DC618609943002C7B11 /* PageOneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageOneView.m; sourceTree = "<group>"; };
 		8FBA0DC718609943002C7B11 /* PageOneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageOneView.xib; sourceTree = "<group>"; };
-		8FBA0DCB18609979002C7B11 /* RP_UIView_2_PDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RP_UIView_2_PDF.h; sourceTree = "<group>"; };
-		8FBA0DCC18609979002C7B11 /* RP_UIView_2_PDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RP_UIView_2_PDF.m; sourceTree = "<group>"; };
+		8FBA0DCB18609979002C7B11 /* RP_UIView_2_PDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RP_UIView_2_PDF.h; path = ../RP_UIView_2_PDF.h; sourceTree = "<group>"; };
+		8FBA0DCC18609979002C7B11 /* RP_UIView_2_PDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RP_UIView_2_PDF.m; path = ../RP_UIView_2_PDF.m; sourceTree = "<group>"; };
 		8FBA0DCE186099B1002C7B11 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8FBA0DD1186099FB002C7B11 /* LzzyHale.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LzzyHale.jpg; sourceTree = "<group>"; };
 		8FBA0DD918609C52002C7B11 /* PageTwoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageTwoView.xib; sourceTree = "<group>"; };
