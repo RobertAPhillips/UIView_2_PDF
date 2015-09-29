@@ -1,4 +1,5 @@
-Create UIView objects using any method you like, including interface builder and Auto-layout, then generate a PDF directly from those views !
+## Description
+Create UIView objects using any method you like, including interface builder with Auto-layout and size classes enabled. Then generate a PDF directly from those views!
 
 ## Requirements
 XCode 6.4+, iOS 7.0+
@@ -7,7 +8,7 @@ XCode 6.4+, iOS 7.0+
 In XCode, select 'Add Files To Project', and select RP_UIView_2_PDF.h
 
 ## Usage
-1. Make a xib file that creates only UILabels and/or UIImageViews and/or other UIView subviews. Use views that are 1 pixel high or wide to create lines. Set the tag of a UIView to 1 to have it draw filled or zero to draw it as just a 1 pixel bordered box.
+1. Make a xib file. Your xib file should only consist of UILabels and/or UIImageViews and/or other UIView subviews. Use views that are 1 pixel high or wide to create lines. Set the tag of a UIView to 1 to have it draw filled or zero to draw as just a 1 pixel bordered box.
 2. Load your xib like so
 ```objective-c
 UIView *pageOne = [[NSBundle mainBundle] loadNibNamed:@"NibNameOne" owner:self options:nil].lastObject;
