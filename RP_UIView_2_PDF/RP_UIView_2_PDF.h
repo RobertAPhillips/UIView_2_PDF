@@ -10,8 +10,6 @@
 
 @interface RP_UIView_2_PDF : NSObject
 
-+(NSString *)generatePDF:(NSArray *)pages
-                withName:(NSString *)filename
-           outlineLabels:(BOOL)drawBoxesAroundLabels;
++(NSString *)generatePDFWithPages:(NSArray *)pages;
 
 @end

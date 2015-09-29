@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501EC5791BBB50AA00D48413 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 501EC5781BBB50AA00D48413 /* PreviewViewController.m */; settings = {ASSET_TAGS = (); }; };
 		509F60B41BBB41B7001B2470 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509F60B31BBB41B7001B2470 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		8FBA0D8B186098BB002C7B11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBA0D8A186098BB002C7B11 /* Foundation.framework */; };
 		8FBA0D8D186098BB002C7B11 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBA0D8C186098BB002C7B11 /* CoreGraphics.framework */; };
@@ -26,7 +27,6 @@
 		8FBA0DCD18609979002C7B11 /* RP_UIView_2_PDF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA0DCC18609979002C7B11 /* RP_UIView_2_PDF.m */; };
 		8FBA0DCF186099B1002C7B11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA0DCE186099B1002C7B11 /* Main.storyboard */; };
 		8FBA0DD2186099FB002C7B11 /* LzzyHale.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA0DD1186099FB002C7B11 /* LzzyHale.jpg */; };
-		8FBA0DD618609C1F002C7B11 /* PageTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA0DD518609C1F002C7B11 /* PageTwoView.m */; };
 		8FBA0DDA18609C52002C7B11 /* PageTwoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA0DD918609C52002C7B11 /* PageTwoView.xib */; };
 		8FBA0DE11860A71E002C7B11 /* images-5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA0DDB1860A71E002C7B11 /* images-5.jpeg */; };
 		8FBA0DE21860A71E002C7B11 /* images-1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA0DDC1860A71E002C7B11 /* images-1.jpeg */; };
@@ -47,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		501EC5771BBB50AA00D48413 /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
+		501EC5781BBB50AA00D48413 /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
 		509F60B31BBB41B7001B2470 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8FBA0D87186098BB002C7B11 /* RP_UIView_2_PDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RP_UIView_2_PDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBA0D8A186098BB002C7B11 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -73,8 +75,6 @@
 		8FBA0DCC18609979002C7B11 /* RP_UIView_2_PDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RP_UIView_2_PDF.m; sourceTree = "<group>"; };
 		8FBA0DCE186099B1002C7B11 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8FBA0DD1186099FB002C7B11 /* LzzyHale.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LzzyHale.jpg; sourceTree = "<group>"; };
-		8FBA0DD418609C1F002C7B11 /* PageTwoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTwoView.h; sourceTree = "<group>"; };
-		8FBA0DD518609C1F002C7B11 /* PageTwoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTwoView.m; sourceTree = "<group>"; };
 		8FBA0DD918609C52002C7B11 /* PageTwoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageTwoView.xib; sourceTree = "<group>"; };
 		8FBA0DDB1860A71E002C7B11 /* images-5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images-5.jpeg"; sourceTree = "<group>"; };
 		8FBA0DDC1860A71E002C7B11 /* images-1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images-1.jpeg"; sourceTree = "<group>"; };
@@ -108,6 +108,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		501EC57A1BBB50AD00D48413 /* PreviewViewController */ = {
+			isa = PBXGroup;
+			children = (
+				501EC5771BBB50AA00D48413 /* PreviewViewController.h */,
+				501EC5781BBB50AA00D48413 /* PreviewViewController.m */,
+			);
+			name = PreviewViewController;
+			sourceTree = "<group>";
+		};
+		501EC57B1BBB50B100D48413 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8FBA0D9F186098BB002C7B11 /* ViewController.h */,
+				8FBA0DA0186098BB002C7B11 /* ViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		8FBA0D7E186098BB002C7B11 = {
 			isa = PBXGroup;
 			children = (
@@ -203,8 +221,8 @@
 		8FBA0DC1186098ED002C7B11 /* View Contollers */ = {
 			isa = PBXGroup;
 			children = (
-				8FBA0D9F186098BB002C7B11 /* ViewController.h */,
-				8FBA0DA0186098BB002C7B11 /* ViewController.m */,
+				501EC57B1BBB50B100D48413 /* ViewController */,
+				501EC57A1BBB50AD00D48413 /* PreviewViewController */,
 			);
 			name = "View Contollers";
 			sourceTree = "<group>";
@@ -254,8 +272,6 @@
 		8FBA0DD318609C01002C7B11 /* Page 2 */ = {
 			isa = PBXGroup;
 			children = (
-				8FBA0DD418609C1F002C7B11 /* PageTwoView.h */,
-				8FBA0DD518609C1F002C7B11 /* PageTwoView.m */,
 				8FBA0DD918609C52002C7B11 /* PageTwoView.xib */,
 			);
 			name = "Page 2";
@@ -372,7 +388,7 @@
 				8FBA0DCD18609979002C7B11 /* RP_UIView_2_PDF.m in Sources */,
 				8FBA0D9B186098BB002C7B11 /* AppDelegate.m in Sources */,
 				8FBA0DC818609943002C7B11 /* PageOneView.m in Sources */,
-				8FBA0DD618609C1F002C7B11 /* PageTwoView.m in Sources */,
+				501EC5791BBB50AA00D48413 /* PreviewViewController.m in Sources */,
 				8FBA0D97186098BB002C7B11 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,12 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface PageOneView : UIView
-
-@property (weak, nonatomic) IBOutlet UIView *xibView;
 @property (weak, nonatomic) IBOutlet UILabel *titleOne;
 @property (weak, nonatomic) IBOutlet UILabel *titleTwo;
 @property (weak, nonatomic) IBOutlet UILabel *labelOne;
 @property (weak, nonatomic) IBOutlet UILabel *labelTwo;
 @property (weak, nonatomic) IBOutlet UILabel *rightAllignedLabel;
-
 @end

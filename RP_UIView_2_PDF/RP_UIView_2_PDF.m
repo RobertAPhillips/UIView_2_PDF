@@ -10,53 +10,16 @@
 
 @implementation RP_UIView_2_PDF
 
-+(NSString *)generatePDF:(NSArray *)pages withName:(NSString *)filename outlineLabels:(BOOL)drawBoxesAroundLabels {
++(NSString *)generatePDFWithPages:(NSArray *)pages {
     
-    NSString *filepath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.pdf", filename]];
+    NSString *filepath = [[NSTemporaryDirectory() stringByAppendingPathComponent:@"temp"] stringByAppendingPathExtension:@"pdf"];
     
-    // Create the PDF context
     UIGraphicsBeginPDFContextToFile(filepath, CGRectZero, nil);
     
-    // get the context reference so we can render to it.
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    for (UIView *page in pages)
-    {
-        UIGraphicsBeginPDFPageWithInfo(CGRectMake(0.0, 0.0, page.bounds.size.width, page.bounds.size.height), nil);
-        
-        NSArray *allSubViews = [self allSubViewsForPage:page];
-        
-        // draw UIView boxes and lines
-        for (UIView *view in allSubViews)
-        {
-            if ([view isKindOfClass:[UIImageView class]]) {
-                
-                UIImageView *imageView = (UIImageView *)view;
-                [imageView.image drawInRect:imageView.frame];
-            } else if ([view isKindOfClass:[UILabel class]]) {
-                
-                UILabel *label = (UILabel *)view;
-                
-                if (drawBoxesAroundLabels) {
-                    [self drawLinesUsingUIView:label withLineThickness:1.0 inGraphicsContext:context fillView:NO];
-                }
-                
-                NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-                paragraphStyle.lineBreakMode = label.lineBreakMode;
-                paragraphStyle.alignment = label.textAlignment;
-                
-                [label.text drawInRect:label.frame
-                        withAttributes:@{
-                                         NSFontAttributeName:label.font,
-                                         NSParagraphStyleAttributeName:paragraphStyle,
-                                         NSForegroundColorAttributeName:label.textColor
-                                         }];
-            } else if ([view isKindOfClass:[UIView class]]) {
-                
-                // draw view as boxes or lines
-                [self drawLinesUsingUIView:view withLineThickness:1.0 inGraphicsContext:context fillView:view.tag];
-            }
-        }
+    for (UIView *page in pages) {
+        [self drawPage:page withContext:context];
     }
     
     UIGraphicsEndPDFContext();
@@ -64,8 +27,46 @@
     return filepath;
 }
 
++(void)drawPage:(UIView *)page withContext:(CGContextRef)context {
+    
+    UIGraphicsBeginPDFPageWithInfo(CGRectMake(0.0, 0.0, page.bounds.size.width, page.bounds.size.height), nil);
+    
+    for (UIView *subview in [self allSubViewsForPage:page]) {
+        
+        if ([subview isKindOfClass:[UIImageView class]]) {
+            
+            UIImageView *imageView = (UIImageView *)subview;
+            [imageView.image drawInRect:imageView.frame];
+            
+        } else if ([subview isKindOfClass:[UILabel class]]) {
+            
+            UILabel *label = (UILabel *)subview;
+            
+            NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+            paragraphStyle.lineBreakMode = label.lineBreakMode;
+            paragraphStyle.alignment = label.textAlignment;
+            
+            [label.text drawInRect:label.frame
+                    withAttributes:@{
+                                     NSFontAttributeName:label.font,
+                                     NSParagraphStyleAttributeName:paragraphStyle,
+                                     NSForegroundColorAttributeName:label.textColor
+                                     }];
+            
+        } else if ([subview isKindOfClass:[UIView class]]) {
+            
+            [self drawLinesUsingUIView:subview
+                     withLineThickness:1.0
+                     inGraphicsContext:context
+                              fillView:subview.tag];
+            
+        }
+    }
+    
+}
+
 +(void)drawLinesUsingUIView:(UIView *)view withLineThickness:(float)thickness inGraphicsContext:(CGContextRef)context fillView:(BOOL)fillView
-{
+{    
     CGContextSaveGState(context);
     CGContextSetStrokeColorWithColor(context, view.backgroundColor.CGColor);
     CGContextSetFillColorWithColor(context, view.backgroundColor.CGColor);
@@ -88,29 +89,19 @@
     else if (view.frame.size.width > 1 && view.frame.size.height > 1)
     {
         // both the width and height of the view are greater than 1, so draw a rect around the frame
-        CGMutablePathRef path = CGPathCreateMutable();
-        CGPathMoveToPoint(path, NULL, view.frame.origin.x, view.frame.origin.y+view.frame.size.height);
-        CGPathAddLineToPoint(path, NULL, view.frame.origin.x, view.frame.origin.y);
-        CGPathAddLineToPoint(path, NULL, view.frame.origin.x+view.frame.size.width, view.frame.origin.y);
-        CGPathAddLineToPoint(path, NULL, view.frame.origin.x+view.frame.size.width, view.frame.origin.y+view.frame.size.height);
-        CGPathCloseSubpath(path);
-        CGContextAddPath(context, path);
-        CGContextStrokePath(context);
-        
-        if (fillView)
-        {
-            // fill box if view tag set to 1 or boolean == yes
+        if (fillView) {
             CGContextSetFillColorWithColor(context, view.backgroundColor.CGColor);
-            CGContextAddPath(context, path);
-            CGContextFillPath(context);
+            CGContextFillRect(context, view.frame);
         }
+        CGContextStrokeRect(context, view.frame);
     }
     CGContextRestoreGState(context);
 }
 
-+(NSMutableArray*)allSubViewsForPage:(UIView *)page
++(NSArray*)allSubViewsForPage:(UIView *)page
 {
-    NSMutableArray *array = [[NSMutableArray alloc] init];
+    NSMutableArray *array = [@[] mutableCopy];
+    
     [array addObject:page];
     
     for (UIView *subview in page.subviews)
@@ -124,9 +115,10 @@
                 
         CGPoint origin = [subview.superview convertPoint:subview.frame.origin toView:subview.superview.superview];
         subview.frame = CGRectMake(origin.x, origin.y, subview.frame.size.width, subview.frame.size.height);
-        [array addObjectsFromArray:(NSArray*)[self allSubViewsForPage:subview]];
+        [array addObjectsFromArray:[self allSubViewsForPage:subview]];
     }
-    return array;
+    
+    return [array copy];
 }
 
 @end
