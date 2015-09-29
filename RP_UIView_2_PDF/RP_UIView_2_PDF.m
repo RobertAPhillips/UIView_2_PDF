@@ -8,80 +8,63 @@
 
 #import "RP_UIView_2_PDF.h"
 
-@interface RP_UIView_2_PDF()
-
-@property (strong, nonatomic) NSString *pdfFilePath;
-
-@end
-
 @implementation RP_UIView_2_PDF
 
-- (NSString *)pathToPDFByCreatingPDFFromUIViews:(NSArray *)arrayOfViews withPDFFileName:(NSString *)fileName
-{
-    self.pdfFilePath = [self tempDirectoryPathAddingFileName:[NSString stringWithFormat:@"%@.pdf", fileName]];
++(NSString *)generatePDF:(NSArray *)pages withName:(NSString *)filename outlineLabels:(BOOL)drawBoxesAroundLabels {
+    
+    NSString *filepath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.pdf", filename]];
     
     // Create the PDF context
-    UIGraphicsBeginPDFContextToFile(_pdfFilePath, CGRectZero, nil);
+    UIGraphicsBeginPDFContextToFile(filepath, CGRectZero, nil);
     
     // get the context reference so we can render to it.
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    for (UIView *inputView in arrayOfViews)
+    for (UIView *page in pages)
     {
-        UIGraphicsBeginPDFPageWithInfo(CGRectMake(0.0, 0.0, inputView.bounds.size.width, inputView.bounds.size.height), nil);
+        UIGraphicsBeginPDFPageWithInfo(CGRectMake(0.0, 0.0, page.bounds.size.width, page.bounds.size.height), nil);
         
-        NSArray *allSubViews = [self allSubViewsForView:inputView];
+        NSArray *allSubViews = [self allSubViewsForPage:page];
         
         // draw UIView boxes and lines
         for (UIView *view in allSubViews)
         {
-            if ([view isKindOfClass:[UIView class]] &&
-                ![view isKindOfClass:[UILabel class]] &&
-                ![view isKindOfClass:[UIImageView class]])
-            {
-                // draw view as boxes or lines
-                [self drawLinesUsingUIView:view withLineThickness:1.0 inGraphicsContext:context fillView:view.tag];
-            }
-            else if ([view isKindOfClass:[UILabel class]])
-            {
+            if ([view isKindOfClass:[UIImageView class]]) {
+                
+                UIImageView *imageView = (UIImageView *)view;
+                [imageView.image drawInRect:imageView.frame];
+            } else if ([view isKindOfClass:[UILabel class]]) {
+                
                 UILabel *label = (UILabel *)view;
                 
-                if (_drawBoxesAroundLabels)
+                if (drawBoxesAroundLabels) {
                     [self drawLinesUsingUIView:label withLineThickness:1.0 inGraphicsContext:context fillView:NO];
+                }
                 
                 NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
                 paragraphStyle.lineBreakMode = label.lineBreakMode;
                 paragraphStyle.alignment = label.textAlignment;
                 
-                NSDictionary *attributes = @{NSFontAttributeName:label.font,
-                                             NSParagraphStyleAttributeName:paragraphStyle,
-                                             NSForegroundColorAttributeName:label.textColor};
+                [label.text drawInRect:label.frame
+                        withAttributes:@{
+                                         NSFontAttributeName:label.font,
+                                         NSParagraphStyleAttributeName:paragraphStyle,
+                                         NSForegroundColorAttributeName:label.textColor
+                                         }];
+            } else if ([view isKindOfClass:[UIView class]]) {
                 
-                CGRect labelRect = CGRectMake(label.frame.origin.x,
-                                              label.frame.origin.y,
-                                              label.frame.size.width,
-                                              label.frame.size.height);
-                
-                [label.text drawInRect:labelRect withAttributes:attributes];
-            }
-            else if ([view isKindOfClass:[UIImageView class]])
-            {
-                UIImageView *imageView = (UIImageView *)view;
-                
-                [imageView.image drawInRect:CGRectMake(imageView.frame.origin.x,
-                                                       imageView.frame.origin.y,
-                                                       imageView.frame.size.width,
-                                                       imageView.frame.size.height)];
+                // draw view as boxes or lines
+                [self drawLinesUsingUIView:view withLineThickness:1.0 inGraphicsContext:context fillView:view.tag];
             }
         }
     }
     
     UIGraphicsEndPDFContext();
     
-    return _pdfFilePath;
+    return filepath;
 }
 
-- (void)drawLinesUsingUIView:(UIView *)view withLineThickness:(float)thickness inGraphicsContext:(CGContextRef)context fillView:(BOOL)fillView
++(void)drawLinesUsingUIView:(UIView *)view withLineThickness:(float)thickness inGraphicsContext:(CGContextRef)context fillView:(BOOL)fillView
 {
     CGContextSaveGState(context);
     CGContextSetStrokeColorWithColor(context, view.backgroundColor.CGColor);
@@ -125,18 +108,12 @@
     CGContextRestoreGState(context);
 }
 
-- (NSString *)tempDirectoryPathAddingFileName:(NSString *)fileName
-{
-    NSString *path = NSTemporaryDirectory();
-	return [path stringByAppendingPathComponent:fileName];
-}
-
-- (NSMutableArray*)allSubViewsForView:(UIView *)view
++(NSMutableArray*)allSubViewsForPage:(UIView *)page
 {
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    [array addObject:view];
+    [array addObject:page];
     
-    for (UIView *subview in view.subviews)
+    for (UIView *subview in page.subviews)
     {
         if ([subview isKindOfClass:[UILabel class]])
         {
@@ -147,7 +124,7 @@
                 
         CGPoint origin = [subview.superview convertPoint:subview.frame.origin toView:subview.superview.superview];
         subview.frame = CGRectMake(origin.x, origin.y, subview.frame.size.width, subview.frame.size.height);
-        [array addObjectsFromArray:(NSArray*)[self allSubViewsForView:subview]];
+        [array addObjectsFromArray:(NSArray*)[self allSubViewsForPage:subview]];
     }
     return array;
 }

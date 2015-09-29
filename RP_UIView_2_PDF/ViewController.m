@@ -35,7 +35,7 @@
 
 - (IBAction)viewPDFButtonPressed:(id)sender
 {
-    NSMutableArray *arrayOfViews = [[NSMutableArray alloc] init];
+    NSMutableArray *pages = [[NSMutableArray alloc] init];
     
     // create a page one instance
     PageOneView *pageOneView = [[PageOneView alloc] init];
@@ -44,23 +44,19 @@
     pageOneView.labelOne.text = @"This label moves and resizes";
     pageOneView.labelOne.text = @"This label also moves and resizes";
     pageOneView.rightAllignedLabel.text = @"$42.32";
-    [arrayOfViews addObject:pageOneView];
+    [pages addObject:pageOneView];
     
     // create a page two instance
     PageTwoView *pageTwoView = [[PageTwoView alloc] init];
-    [arrayOfViews addObject:pageTwoView];
+    [pages addObject:pageTwoView];
     
     // if you use the same view more than once then you will need to clone it or copy it
     NSData *viewConvertedToData = [NSKeyedArchiver archivedDataWithRootObject:pageOneView];
     UIView *pageOneClone = [NSKeyedUnarchiver unarchiveObjectWithData:viewConvertedToData];
-    [arrayOfViews addObject:pageOneClone];
-    
-    // initialize the PDF drawing code
-    RP_UIView_2_PDF *view2pdf = [[RP_UIView_2_PDF alloc] init];
-    //view2pdf.drawBoxesAroundLabels = YES;
+    [pages addObject:pageOneClone];
     
     // assign the path to the PDF to the property variable so that QLPreviewController can display it by sending the views to the PDF creator
-    self.pdfPath = [view2pdf pathToPDFByCreatingPDFFromUIViews:arrayOfViews withPDFFileName:@"myPDF"];
+    self.pdfPath = [RP_UIView_2_PDF generatePDF:pages withName:@"myPDF" outlineLabels:NO];
     
     // display the PDF
     QLPreviewController *preview = [[QLPreviewController alloc] init];
