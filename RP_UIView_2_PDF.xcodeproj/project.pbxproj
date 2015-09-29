@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		509F60B41BBB41B7001B2470 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509F60B31BBB41B7001B2470 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		8FBA0D8B186098BB002C7B11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBA0D8A186098BB002C7B11 /* Foundation.framework */; };
 		8FBA0D8D186098BB002C7B11 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBA0D8C186098BB002C7B11 /* CoreGraphics.framework */; };
 		8FBA0D8F186098BB002C7B11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBA0D8E186098BB002C7B11 /* UIKit.framework */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		509F60B31BBB41B7001B2470 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8FBA0D87186098BB002C7B11 /* RP_UIView_2_PDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RP_UIView_2_PDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBA0D8A186098BB002C7B11 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8FBA0D8C186098BB002C7B11 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -140,11 +142,11 @@
 			isa = PBXGroup;
 			children = (
 				8FBA0DBF186098D2002C7B11 /* App Delegate */,
-				8FBA0D91186098BB002C7B11 /* Supporting Files */,
 				8FBA0DC0186098E1002C7B11 /* Storyboards */,
 				8FBA0DC1186098ED002C7B11 /* View Contollers */,
 				8FBA0DC318609924002C7B11 /* PDF Pages */,
 				8FBA0DCA18609965002C7B11 /* PDF Creation */,
+				8FBA0D91186098BB002C7B11 /* Supporting Files */,
 				8FBA0DD0186099EC002C7B11 /* Assets */,
 			);
 			path = RP_UIView_2_PDF;
@@ -153,6 +155,7 @@
 		8FBA0D91186098BB002C7B11 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				509F60B31BBB41B7001B2470 /* Launch Screen.storyboard */,
 				8FBA0D92186098BB002C7B11 /* RP_UIView_2_PDF-Info.plist */,
 				8FBA0D93186098BB002C7B11 /* InfoPlist.strings */,
 				8FBA0D96186098BB002C7B11 /* main.m */,
@@ -338,6 +341,7 @@
 				8FBA0DE31860A71E002C7B11 /* images-4.jpeg in Resources */,
 				8FBA0DE11860A71E002C7B11 /* images-5.jpeg in Resources */,
 				8FBA0DCF186099B1002C7B11 /* Main.storyboard in Resources */,
+				509F60B41BBB41B7001B2470 /* Launch Screen.storyboard in Resources */,
 				8FBA0DE41860A71E002C7B11 /* images-2.jpeg in Resources */,
 				8FBA0DD2186099FB002C7B11 /* LzzyHale.jpg in Resources */,
 				8FBA0D95186098BB002C7B11 /* InfoPlist.strings in Resources */,
@@ -570,6 +574,7 @@
 				8FBA0DBB186098BB002C7B11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8FBA0DBC186098BB002C7B11 /* Build configuration list for PBXNativeTarget "RP_UIView_2_PDFTests" */ = {
 			isa = XCConfigurationList;
@@ -578,6 +583,7 @@
 				8FBA0DBE186098BB002C7B11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
