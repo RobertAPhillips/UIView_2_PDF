@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <QuickLook/QuickLook.h>
 
-@interface ViewController : UIViewController <QLPreviewControllerDataSource>
+@interface ViewController : UIViewController
 
 @end

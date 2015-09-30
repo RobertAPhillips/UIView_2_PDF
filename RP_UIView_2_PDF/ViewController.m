@@ -8,76 +8,46 @@
 
 #import "ViewController.h"
 #import "PageOneView.h"
-#import "PageTwoView.h"
 #import "RP_UIView_2_PDF.h"
-
-@interface ViewController ()
-
-@property (strong, nonatomic) NSString *pdfPath;
-
-@end
+#import "PreviewViewController.h"
 
 @implementation ViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 #pragma mark - User Actions
 
-- (IBAction)viewPDFButtonPressed:(id)sender
-{
-    NSMutableArray *arrayOfViews = [[NSMutableArray alloc] init];
+- (IBAction)viewPDFButtonPressed:(id)sender {
     
-    // create a page one instance
-    PageOneView *pageOneView = [[PageOneView alloc] init];
+    NSArray *pages = [self generateExamplePages];
+    
+    NSString *tempFilepath = [RP_UIView_2_PDF generatePDFWithPages:pages];
+    
+    [self performSegueWithIdentifier:@"WebView"
+                              sender:[NSURL fileURLWithPath:tempFilepath]];
+}
+
+-(NSArray *)generateExamplePages {
+    
+    NSMutableArray *collection = [@[] mutableCopy];
+    
+    PageOneView *pageOneView = [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([PageOneView class]) owner:self options:nil].lastObject;
     pageOneView.titleOne.text = @"This title resizes:";
     pageOneView.titleTwo.text = @"This title also resizes:";
     pageOneView.labelOne.text = @"This label moves and resizes";
-    pageOneView.labelOne.text = @"This label also moves and resizes";
+    pageOneView.labelTwo.text = @"This label also moves and resizes";
     pageOneView.rightAllignedLabel.text = @"$42.32";
-    [arrayOfViews addObject:pageOneView];
     
-    // create a page two instance
-    PageTwoView *pageTwoView = [[PageTwoView alloc] init];
-    [arrayOfViews addObject:pageTwoView];
+    [collection addObject:pageOneView];
     
-    // if you use the same view more than once then you will need to clone it or copy it
-    NSData *viewConvertedToData = [NSKeyedArchiver archivedDataWithRootObject:pageOneView];
-    UIView *pageOneClone = [NSKeyedUnarchiver unarchiveObjectWithData:viewConvertedToData];
-    [arrayOfViews addObject:pageOneClone];
+    UIView *pageTwoView = [[NSBundle mainBundle] loadNibNamed:@"PageTwoView" owner:self options:nil].lastObject;
     
-    // initialize the PDF drawing code
-    RP_UIView_2_PDF *view2pdf = [[RP_UIView_2_PDF alloc] init];
-    //view2pdf.drawBoxesAroundLabels = YES;
+    [collection addObject:pageTwoView];
     
-    // assign the path to the PDF to the property variable so that QLPreviewController can display it by sending the views to the PDF creator
-    self.pdfPath = [view2pdf pathToPDFByCreatingPDFFromUIViews:arrayOfViews withPDFFileName:@"myPDF"];
-    
-    // display the PDF
-    QLPreviewController *preview = [[QLPreviewController alloc] init];
-    preview.dataSource = self;
-    [self presentViewController:preview animated:YES completion:nil];
+    return [collection copy];
 }
 
-#pragma mark - QLPreviewController DataSource
-
-- (NSInteger) numberOfPreviewItemsInPreviewController: (QLPreviewController *) controller
-{
-    return 1;
-}
-
-- (id <QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index
-{
-    return [NSURL fileURLWithPath:_pdfPath];
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    PreviewViewController *controller = segue.destinationViewController;
+    controller.url = sender;
 }
 
 @end

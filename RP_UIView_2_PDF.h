@@ -10,8 +10,6 @@
 
 @interface RP_UIView_2_PDF : NSObject
 
-@property (assign, nonatomic) BOOL drawBoxesAroundLabels;
-
-- (NSString *)pathToPDFByCreatingPDFFromUIViews:(NSArray *)arrayOfViews withPDFFileName:(NSString *)fileName;
++(NSString *)generatePDFWithPages:(NSArray *)pages;
 
 @end

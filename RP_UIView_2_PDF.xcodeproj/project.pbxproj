@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501EC5791BBB50AA00D48413 /* PreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 501EC5781BBB50AA00D48413 /* PreviewViewController.m */; settings = {ASSET_TAGS = (); }; };
+		509F60B41BBB41B7001B2470 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 509F60B31BBB41B7001B2470 /* Launch Screen.storyboard */; settings = {ASSET_TAGS = (); }; };
 		8FBA0D8B186098BB002C7B11 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBA0D8A186098BB002C7B11 /* Foundation.framework */; };
 		8FBA0D8D186098BB002C7B11 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBA0D8C186098BB002C7B11 /* CoreGraphics.framework */; };
 		8FBA0D8F186098BB002C7B11 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBA0D8E186098BB002C7B11 /* UIKit.framework */; };
@@ -25,7 +27,6 @@
 		8FBA0DCD18609979002C7B11 /* RP_UIView_2_PDF.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA0DCC18609979002C7B11 /* RP_UIView_2_PDF.m */; };
 		8FBA0DCF186099B1002C7B11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA0DCE186099B1002C7B11 /* Main.storyboard */; };
 		8FBA0DD2186099FB002C7B11 /* LzzyHale.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA0DD1186099FB002C7B11 /* LzzyHale.jpg */; };
-		8FBA0DD618609C1F002C7B11 /* PageTwoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBA0DD518609C1F002C7B11 /* PageTwoView.m */; };
 		8FBA0DDA18609C52002C7B11 /* PageTwoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA0DD918609C52002C7B11 /* PageTwoView.xib */; };
 		8FBA0DE11860A71E002C7B11 /* images-5.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA0DDB1860A71E002C7B11 /* images-5.jpeg */; };
 		8FBA0DE21860A71E002C7B11 /* images-1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8FBA0DDC1860A71E002C7B11 /* images-1.jpeg */; };
@@ -46,6 +47,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		501EC5771BBB50AA00D48413 /* PreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreviewViewController.h; sourceTree = "<group>"; };
+		501EC5781BBB50AA00D48413 /* PreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreviewViewController.m; sourceTree = "<group>"; };
+		509F60B31BBB41B7001B2470 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		8FBA0D87186098BB002C7B11 /* RP_UIView_2_PDF.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RP_UIView_2_PDF.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBA0D8A186098BB002C7B11 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8FBA0D8C186098BB002C7B11 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -67,12 +71,10 @@
 		8FBA0DC518609943002C7B11 /* PageOneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageOneView.h; sourceTree = "<group>"; };
 		8FBA0DC618609943002C7B11 /* PageOneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageOneView.m; sourceTree = "<group>"; };
 		8FBA0DC718609943002C7B11 /* PageOneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageOneView.xib; sourceTree = "<group>"; };
-		8FBA0DCB18609979002C7B11 /* RP_UIView_2_PDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RP_UIView_2_PDF.h; sourceTree = "<group>"; };
-		8FBA0DCC18609979002C7B11 /* RP_UIView_2_PDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RP_UIView_2_PDF.m; sourceTree = "<group>"; };
+		8FBA0DCB18609979002C7B11 /* RP_UIView_2_PDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RP_UIView_2_PDF.h; path = ../RP_UIView_2_PDF.h; sourceTree = "<group>"; };
+		8FBA0DCC18609979002C7B11 /* RP_UIView_2_PDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RP_UIView_2_PDF.m; path = ../RP_UIView_2_PDF.m; sourceTree = "<group>"; };
 		8FBA0DCE186099B1002C7B11 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8FBA0DD1186099FB002C7B11 /* LzzyHale.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = LzzyHale.jpg; sourceTree = "<group>"; };
-		8FBA0DD418609C1F002C7B11 /* PageTwoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTwoView.h; sourceTree = "<group>"; };
-		8FBA0DD518609C1F002C7B11 /* PageTwoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTwoView.m; sourceTree = "<group>"; };
 		8FBA0DD918609C52002C7B11 /* PageTwoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageTwoView.xib; sourceTree = "<group>"; };
 		8FBA0DDB1860A71E002C7B11 /* images-5.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images-5.jpeg"; sourceTree = "<group>"; };
 		8FBA0DDC1860A71E002C7B11 /* images-1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images-1.jpeg"; sourceTree = "<group>"; };
@@ -106,6 +108,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		501EC57A1BBB50AD00D48413 /* PreviewViewController */ = {
+			isa = PBXGroup;
+			children = (
+				501EC5771BBB50AA00D48413 /* PreviewViewController.h */,
+				501EC5781BBB50AA00D48413 /* PreviewViewController.m */,
+			);
+			name = PreviewViewController;
+			sourceTree = "<group>";
+		};
+		501EC57B1BBB50B100D48413 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8FBA0D9F186098BB002C7B11 /* ViewController.h */,
+				8FBA0DA0186098BB002C7B11 /* ViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		8FBA0D7E186098BB002C7B11 = {
 			isa = PBXGroup;
 			children = (
@@ -140,11 +160,11 @@
 			isa = PBXGroup;
 			children = (
 				8FBA0DBF186098D2002C7B11 /* App Delegate */,
-				8FBA0D91186098BB002C7B11 /* Supporting Files */,
 				8FBA0DC0186098E1002C7B11 /* Storyboards */,
 				8FBA0DC1186098ED002C7B11 /* View Contollers */,
 				8FBA0DC318609924002C7B11 /* PDF Pages */,
 				8FBA0DCA18609965002C7B11 /* PDF Creation */,
+				8FBA0D91186098BB002C7B11 /* Supporting Files */,
 				8FBA0DD0186099EC002C7B11 /* Assets */,
 			);
 			path = RP_UIView_2_PDF;
@@ -153,6 +173,7 @@
 		8FBA0D91186098BB002C7B11 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				509F60B31BBB41B7001B2470 /* Launch Screen.storyboard */,
 				8FBA0D92186098BB002C7B11 /* RP_UIView_2_PDF-Info.plist */,
 				8FBA0D93186098BB002C7B11 /* InfoPlist.strings */,
 				8FBA0D96186098BB002C7B11 /* main.m */,
@@ -200,8 +221,8 @@
 		8FBA0DC1186098ED002C7B11 /* View Contollers */ = {
 			isa = PBXGroup;
 			children = (
-				8FBA0D9F186098BB002C7B11 /* ViewController.h */,
-				8FBA0DA0186098BB002C7B11 /* ViewController.m */,
+				501EC57B1BBB50B100D48413 /* ViewController */,
+				501EC57A1BBB50AD00D48413 /* PreviewViewController */,
 			);
 			name = "View Contollers";
 			sourceTree = "<group>";
@@ -251,8 +272,6 @@
 		8FBA0DD318609C01002C7B11 /* Page 2 */ = {
 			isa = PBXGroup;
 			children = (
-				8FBA0DD418609C1F002C7B11 /* PageTwoView.h */,
-				8FBA0DD518609C1F002C7B11 /* PageTwoView.m */,
 				8FBA0DD918609C52002C7B11 /* PageTwoView.xib */,
 			);
 			name = "Page 2";
@@ -302,8 +321,8 @@
 		8FBA0D7F186098BB002C7B11 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = Intohand;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					8FBA0DA7186098BB002C7B11 = {
 						TestTargetID = 8FBA0D86186098BB002C7B11;
@@ -338,6 +357,7 @@
 				8FBA0DE31860A71E002C7B11 /* images-4.jpeg in Resources */,
 				8FBA0DE11860A71E002C7B11 /* images-5.jpeg in Resources */,
 				8FBA0DCF186099B1002C7B11 /* Main.storyboard in Resources */,
+				509F60B41BBB41B7001B2470 /* Launch Screen.storyboard in Resources */,
 				8FBA0DE41860A71E002C7B11 /* images-2.jpeg in Resources */,
 				8FBA0DD2186099FB002C7B11 /* LzzyHale.jpg in Resources */,
 				8FBA0D95186098BB002C7B11 /* InfoPlist.strings in Resources */,
@@ -368,7 +388,7 @@
 				8FBA0DCD18609979002C7B11 /* RP_UIView_2_PDF.m in Sources */,
 				8FBA0D9B186098BB002C7B11 /* AppDelegate.m in Sources */,
 				8FBA0DC818609943002C7B11 /* PageOneView.m in Sources */,
-				8FBA0DD618609C1F002C7B11 /* PageTwoView.m in Sources */,
+				501EC5791BBB50AA00D48413 /* PreviewViewController.m in Sources */,
 				8FBA0D97186098BB002C7B11 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,7 +435,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -430,6 +449,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -454,7 +474,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -488,10 +507,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RP_UIView_2_PDF/RP_UIView_2_PDF-Prefix.pch";
 				INFOPLIST_FILE = "RP_UIView_2_PDF/RP_UIView_2_PDF-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robphillips.RP-UIView-2-PDF";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -501,10 +523,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RP_UIView_2_PDF/RP_UIView_2_PDF-Prefix.pch";
 				INFOPLIST_FILE = "RP_UIView_2_PDF/RP_UIView_2_PDF-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robphillips.RP-UIView-2-PDF";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -512,7 +537,6 @@
 		8FBA0DBD186098BB002C7B11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RP_UIView_2_PDF.app/RP_UIView_2_PDF";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -526,6 +550,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "RP_UIView_2_PDFTests/RP_UIView_2_PDFTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robphillips.com.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -535,7 +560,6 @@
 		8FBA0DBE186098BB002C7B11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/RP_UIView_2_PDF.app/RP_UIView_2_PDF";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -545,6 +569,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RP_UIView_2_PDF/RP_UIView_2_PDF-Prefix.pch";
 				INFOPLIST_FILE = "RP_UIView_2_PDFTests/RP_UIView_2_PDFTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.robphillips.com.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -570,6 +595,7 @@
 				8FBA0DBB186098BB002C7B11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8FBA0DBC186098BB002C7B11 /* Build configuration list for PBXNativeTarget "RP_UIView_2_PDFTests" */ = {
 			isa = XCConfigurationList;
@@ -578,6 +604,7 @@
 				8FBA0DBE186098BB002C7B11 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
